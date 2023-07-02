@@ -14,21 +14,24 @@ import config
 
 import asyncpg
 from discord.ext import commands
-import discord
 from sqlalchemy.ext.asyncio import create_async_engine
 from sqlalchemy import Engine
 from bot import Sentinel
 
 async def async_sqlalchemy() -> None:
     return create_async_engine(
-        config.postgresql_sqlalchemy,
+        config.postgresql_sqlalchemy_docker,
+        # if you don't plan to use docker comment the line above and uncomment the line below ( # 25)
+        # config.postgresql_sqlalchemy,
         echo=True,
     )
 
 async def create_pool() -> asyncpg.Pool:
 
     return await asyncpg.create_pool(
-        config.postgresql,
+        config.postgresql_docker,
+        # if you don't plan to use docker comment the line above and uncomment the line below ( # 34)
+        # config.postgresql
         command_timeout=60,
         max_size=20,
         min_size=20,

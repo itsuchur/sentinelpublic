@@ -12,4 +12,6 @@ from redis import asyncio as aioredis
 
 
 async def create_redis_pool():
-    return aioredis.from_url(config.redis)  # host.docker.internal // redis://redis:6379
+    return aioredis.from_url(config.redis_docker)
+    # if you don't plan to use docker comment the line above and uncomment the line below ( # 17)
+    # return aioredis.from_url(config.redis)
