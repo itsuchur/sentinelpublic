@@ -23,7 +23,7 @@ To use the Sentinel Bot, you will need the following:
 
 To install Sentinel, follow these steps:
 
-**Note**: for Docker installation refer to [DOCKER-INSTALLATION.md](https://github.com/itsuchur/sentinelpublic/DOCKER-INSTALLATION.md).
+**Note**: for Docker installation refer to [DOCKER-INSTALLATION.md](https://github.com/itsuchur/sentinelpublic/blob/main/DOCKER-INSTALLATION.md).
 
 1. **Clone this repository to your local machine.**
 
