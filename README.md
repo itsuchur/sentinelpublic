@@ -2,7 +2,10 @@
 
 Sentinel is a Discord bot that helps protect servers from userbot raids. It tracks accounts that mass-join the server within a short time span and automatically bans them if auto-ban mode is enabled on the server.
 
-New in 7.0: the logs of userbot raids are now published on the Internet on the temporary domain https://logs.itsuchur.dev/id=1. Frontend is handled by Flask and Gunicorn (outside of scope of this repository).
+The bot is highly customizable allowing server managers to tailor bot's security measures to their own liking and needs.
+
+*8New in 7.0: the logs of userbot raids are now published on the Internet on the temporary domain https://logs.
+itsuchur.dev/id=1. Frontend is handled by Flask and Gunicorn (outside of scope of this repository).
 
 Much of the bot relies on using both PostgresSQL and Redis instead of keeping data in memory. This is intentional-- in the future the bot would get an admin dashboard to make management even easier.
 
@@ -19,6 +22,8 @@ To use the Sentinel Bot, you will need the following:
 ## Installation
 
 To install Sentinel, follow these steps:
+
+**Note**: for Docker installation refer to [DOCKER-INSTALLATION.md](https://github.com/itsuchur/sentinelpublic/DOCKER-INSTALLATION.md).
 
 1. **Clone this repository to your local machine.**
 
@@ -63,14 +68,16 @@ Run V1_initial_migration.sql file to initialize required SQL tables.
 Create a config.py file with the following content:
 
 ```python
-client_id   = "" # your bot client ID
-token = "" # your bot token
-postgresql = "" # your postgresql info from above
-postgresql_sqlalchemy = ""
-redis = ""
+client_id   = "" # your bot client ID. You can find the ID at https://discord.com/developers/applications
+token = "" # your bot token. You can find the token at https://discord.com/developers/applications
+postgresql = "postgresql://sentinel:password@127.0.0.1/sentinel" # postgresql connection string
+postgresql_sqlalchemy = "postgresql+asyncpg://sentinel:password@127.0.0.1/sentinel"
+redis = "redis://127.0.0.1?password=RedisPassword&encoding=utf-8&decode_responses=True" # Redis connection string
 ```
 
-Start the bot by running the following command:
+Don't forget to edit the credentials.
+
+8. **Start the bot by running the following command:**
 
 ```python launcher.py```
 
