@@ -53,6 +53,7 @@ services:
       - TZ=UTC
       - PGTZ=UTC
     volumes:
+      # sql init will launch just once given the directory containing postgres data is empty
       - ./sql_init.sh:/docker-entrypoint-initdb.d/init.sh
       - postgres_data:/var/lib/postgresql/data/
     ports:
