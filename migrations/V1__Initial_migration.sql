@@ -1,5 +1,7 @@
+-- This SQL script is meant to be launched via psql. Otherwise the script will fail at line # 4
+
 CREATE DATABASE sentinel;
-\c postgres
+\c sentinel
 CREATE USER sentinel WITH PASSWORD 'password';
 GRANT ALL PRIVILEGES ON DATABASE sentinel TO sentinel;
 
